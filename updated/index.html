@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnership Options - Insurance Marketing</title>
+  <style>
+    :root {
+      --primary: #1a202c;
+      --accent: #3182ce;
+      --light: #f7fafc;
+      --border: #e2e8f0;
+      --success: #2f855a;
+      --warning: #dd6b20;
+      --premium: #6b46c1;
+      --subtle: #f5f5f5;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: var(--primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .logo-container {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 80px;
+      height: 80px;
+      background-color: #3182ce;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-image: url('https://raw.githubusercontent.com/anandvip/va-retainer/main/valogo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      list-style-type: square;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ebf8ff;
+    }
+    
+    .highlight-row {
+      background-color: #f0fff4;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      color: #718096;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    .note {
+      background-color: var(--subtle);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .value-prop {
+      background-color: #ebf8ff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    .plan-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    
+    .plan-card {
+      flex: 1;
+      min-width: 260px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .plan-standard {
+      border-top: 4px solid var(--accent);
+    }
+    
+    .plan-premium {
+      border-top: 4px solid var(--premium);
+    }
+    
+    .plan-performance {
+      border-top: 4px solid var(--warning);
+    }
+    
+    .plan-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .plan-standard .plan-title {
+      color: var(--accent);
+    }
+    
+    .plan-premium .plan-title {
+      color: var(--premium);
+    }
+    
+    .plan-performance .plan-title {
+      color: var(--warning);
+    }
+    
+    .plan-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .plan-price-caption {
+      font-size: 0.9rem;
+      color: #718096;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .plan-features {
+      flex-grow: 1;
+    }
+    
+    .plan-features li {
+      margin-bottom: 0.7rem;
+      line-height: 1.4;
+    }
+    
+    .plan-cta {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: bold;
+      padding: 0.7rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .plan-standard .plan-cta {
+      background-color: #ebf8ff;
+      color: var(--accent);
+    }
+    
+    .plan-premium .plan-cta {
+      background-color: #e9d8fd;
+      color: var(--premium);
+    }
+    
+    .plan-performance .plan-cta {
+      background-color: #feebc8;
+      color: var(--warning);
+    }
+    
+    .comparison-table {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    
+    .comparison-table th {
+      text-align: center;
+    }
+    
+    .comparison-table td {
+      text-align: center;
+    }
+    
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: bold;
+    }
+    
+    .feature-check {
+      color: var(--success);
+      font-size: 1.2rem;
+    }
+    
+    .feature-partial {
+      color: var(--warning);
+    }
+    
+    .feature-none {
+      color: #cbd5e0;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    
+    .badge-premium {
+      background-color: #e9d8fd;
+      color: var(--premium);
+    }
+    
+    .badge-standard {
+      background-color: #ebf8ff;
+      color: var(--accent);
+    }
+    
+    .badge-performance {
+      background-color: #feebc8;
+      color: var(--warning);
+    }
+    
+    .special-highlight {
+      background-color: #f0fff4;
+      padding: 0.8rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      border-left: 3px solid var(--success);
+    }
+    
+    @media (max-width: 768px) {
+      .plan-container {
+        flex-direction: column;
+      }
+      
+      .plan-card {
+        width: 100%;
+      }
+      
+      .comparison-table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container"></div>
+    <h1>Flexible Partnership Options</h1>
+    <p>Customized Marketing Solutions for Insurance Professionals</p>
+  </header>
+  
+  <main>
+    <div class="value-prop">
+      <strong>Choose the partnership model that best aligns with your business goals and growth strategy</strong>
+    </div>
+    
+    <h2>Partnership Options</h2>
+    
+    <div class="plan-container">
+      <!-- Standard Plan -->
+      <div class="plan-card plan-standard">
+        <div class="plan-title">Standard Partnership</div>
+        <div class="plan-price">CAD $400</div>
+        <div class="plan-price-caption">Monthly Investment</div>
+        <div class="plan-features">
+          <ul>
+            <li>21-31 hours of dedicated marketing support</li>
+            <li>Strategic ad creation for lead generation</li>
+            <li>AI-assisted blog content (1-2 posts monthly)</li>
+            <li>Social media content creation</li>
+            <li>Community event planning support</li>
+            <li>Monthly strategy Zoom calls</li>
+          </ul>
+        </div>
+        <div class="plan-cta">Our Foundation Partnership</div>
+      </div>
+      
+      <!-- Premium Plan -->
+      <div class="plan-card plan-premium">
+        <div class="plan-title">Premium Partnership</div>
+        <div class="plan-price">CAD $550</div>
+        <div class="plan-price-caption">Monthly Investment</div>
+        <div class="plan-features">
+          <ul>
+            <li><strong>All Standard features, plus:</strong></li>
+            <li>Enhanced ad management with A/B testing</li>
+            <li>Monthly performance analytics reporting</li>
+            <li>Priority support (24-hour response time)</li>
+            <li>Quarterly strategy review sessions</li>
+            <li>Content calendar planning</li>
+            <li>Additional blog post (2-3 total monthly)</li>
+          </ul>
+        </div>
+        <div class="plan-cta">Our Recommended Partnership</div>
+      </div>
+      
+      <!-- Performance Plan -->
+      <div class="plan-card plan-performance">
+        <div class="plan-title">Performance Partnership</div>
+        <div class="plan-price">CAD $350 + Bonuses</div>
+        <div class="plan-price-caption">Base + Results-Based Compensation</div>
+        <div class="plan-features">
+          <ul>
+            <li>18-24 hours of focused marketing support</li>
+            <li>Primary focus on lead generation activities</li>
+            <li>$50 bonus per qualified consultation</li>
+            <li>$100 bonus per new policy written</li>
+            <li>5% commission on first-year premium for policies over $2,000 annual value</li>
+            <li>We succeed together based on results</li>
+          </ul>
+        </div>
+        <div class="plan-cta">Our Results-Driven Partnership</div>
+      </div>
+    </div>
+    
+    <div class="special-highlight">
+      <strong>All plans include:</strong> Specialized insurance marketing expertise, access to AI and design tools, ongoing responsive support, and advertising strategy development (ad spend budgets determined separately).
+    </div>
+    
+    <h2>Detailed Comparison</h2>
+    
+    <table class="comparison-table">
+      <tr>
+        <th>Features & Services</th>
+        <th>Standard <span class="badge badge-standard">$400</span></th>
+        <th>Premium <span class="badge badge-premium">$550</span></th>
+        <th>Performance <span class="badge badge-performance">$350+</span></th>
+      </tr>
+      <tr>
+        <td>Monthly Hours</td>
+        <td>21-31 hours</td>
+        <td>25-35 hours</td>
+        <td>18-24 hours</td>
+      </tr>
+      <tr>
+        <td>Ad Management</td>
+        <td>6-8 hours</td>
+        <td>8-10 hours</td>
+        <td>10-12 hours</td>
+      </tr>
+      <tr>
+        <td>Blog Writing</td>
+        <td>1-2 posts</td>
+        <td>2-3 posts</td>
+        <td>1 post</td>
+      </tr>
+      <tr>
+        <td>Social Media Content</td>
+        <td>6-8 pieces</td>
+        <td>8-10 pieces</td>
+        <td>4-6 pieces</td>
+      </tr>
+      <tr>
+        <td>Performance Reporting</td>
+        <td>Basic</td>
+        <td>Comprehensive</td>
+        <td>Results-focused</td>
+      </tr>
+      <tr>
+        <td>Response Priority</td>
+        <td>Standard</td>
+        <td>24-hour guaranteed</td>
+        <td>Standard</td>
+      </tr>
+      <tr>
+        <td>Strategy Sessions</td>
+        <td>Monthly</td>
+        <td>Monthly + Quarterly Review</td>
+        <td>Monthly</td>
+      </tr>
+      <tr>
+        <td>Performance Bonuses</td>
+        <td><span class="feature-none">✖</span></td>
+        <td><span class="feature-none">✖</span></td>
+        <td><span class="feature-check">✓</span></td>
+      </tr>
+      <tr>
+        <td>Content Calendar</td>
+        <td><span class="feature-none">✖</span></td>
+        <td><span class="feature-check">✓</span></td>
+        <td><span class="feature-none">✖</span></td>
+      </tr>
+    </table>
+    
+    <h2>Partnership Terms</h2>
+    <ul>
+      <li><strong>Payment Timing:</strong> Due on or before the 5th of each month</li>
+      <li><strong>Payment Options:</strong> Bank transfer, credit card, or Remitely (to be confirmed)</li>
+      <li><strong>Invoice Schedule:</strong> Provided 7 days before due date</li>
+      <li><strong>Late Payment Consideration:</strong> 2% fee per month on outstanding balance</li>
+      <li><strong>Service Continuity:</strong> To maintain workflow, services may pause if payment exceeds 15 days overdue</li>
+      <li><strong>Focus Investment:</strong> The retainer represents dedicated time; unused hours do not roll over</li>
+      <li><strong>Scope Adjustments:</strong> We can revisit the investment amount if scope evolves significantly</li>
+      <li><strong>Partnership Renewal:</strong> Automatically continues monthly with 30-day notice period for changes</li>
+      <li><strong>Performance Tracking:</strong> For Performance Partnership, clear attribution processes will be established</li>
+    </ul>
+
+    <div class="note">
+      <h3>Partnership Reflection Point</h3>
+      <p>These options represent starting points for our collaboration. I invite you to consider which model best aligns with your business goals and risk tolerance. We can also create a custom hybrid approach combining elements from different options to perfectly match your specific needs.</p>
+      <p>Which approach resonates most with your vision for growing your insurance practice?</p>
+    </div>
+  </main>
+  
+  <footer>
+    Prepared by Vipul Anand | April 2025 | Helping insurance professionals build meaningful client connections
+  </footer>
+</body>
+</html>
